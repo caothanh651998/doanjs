@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery.getJSON demo</title>
+  <style>
+  img {
+    height: 100px;
+    float: left;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+</head>
+<body onload="doGetJSON()">
+ 
+<div id="images"></div>
+
+<script>
+// (function() {
+//   var flickerAPI = "https://www.24h.com.vn/upload/rss/tintuctrongngay.rss";
+//   $.getJSON( flickerAPI, {
+//     tags: "mount rainier",  
+//     tagmode: "any",
+//     format: "json"
+//   })
+//     .done(function( data ) {
+//       $.each( data.items, function( i, item ) {
+//         $( "<img>" ).attr( "src", item.title ).appendTo( "#images" );
+//         if ( i === 3 ) {
+//           return false;
+//         }
+//       });
+//     });
+// })();
+  // $.getJSON('https://www.24h.com.vn/upload/rss/tintuctrongngay.rss')
+  // function(err, data){
+  // alert(data..CDATA.title)
+
+  // }
+
+  var url = "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.24h.com.vn%2Fupload%2Frss%2Ftintuctrongngay.rss";
+ 
+  // var urltp = "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.tienphong.vn%2Frss%2Fcong-nghe-khoa-hoc-46.rss";
+ 
+  function doGetJSON()  {
+ 
+  // Call fetch(url) with default options.
+  // It returns a Promise object:
+  var aPromise = fetch(url);
+ 
+  // Work with Promise object:
+  aPromise
+    .then(function(response) {
+        if(!response.ok) {
+           throw new Error("HTTP error, status = " + response.status);
+        }
+        // Get JSON Promise from response object:
+        var myJSON_promise = response.json();
+        return myJSON_promise;
+    })
+    .then(function(myJSON) {
+        console.log("OK! JSON:");
+        console.log(myJSON);
+      
+        for (var i = 0; i < myJSON.items.length; i++) {
+          document.write('<a href="#">'+myJSON.items[i].title+'</a>' +'<br>' +myJSON.items[i].content+'<br> <br>')
+          // document.write(myJSON.items[i].content +'<br>')
+          console.log(myJSON.items[i].title);
+        }
+    })
+    .catch(function(error)  {
+        console.log("Noooooo! Something error:");
+        console.log(error);
+    });
+
+}
+    
+  //   var tPromise = fetch(urltp);
+ 
+  // // Work with Promise object:
+  // tPromise
+  //   .then(function(response) {
+  //       if(!response.ok) {
+  //          throw new Error("HTTP error, status = " + response.status);
+  //       }
+  //       // Get JSON Promise from response object:
+  //       var myJSON_promise = response.json();
+  //       return myJSON_promise;
+  //   })
+  //   .then(function(myJSON1) {
+  //       console.log("OK! JSON:");
+  //       console.log(myJSON1);
+      
+  //       for (var i = 0; i < myJSON1.items.length; i++) {
+  //         document.write('<a href="#">'+myJSON1.items[i].title+'</a>' +'<br>' +myJSON1.items[i].content+'<br> <br>')
+  //         // document.write(myJSON.items[i].content +'<br>')
+  //         console.log(myJSON1.items[i].title);
+  //       }
+  //   })
+  //   .catch(function(error)  {
+  //       console.log("Noooooo! Something error:");
+  //       console.log(error);
+  //   });
+ 
+
+</script>
+ 
+</body>
+</html>

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<style type="text/css" media="screen">
+	
+</style>
+<body onload="listProducts()">
+	<div class="container-fluid" style="margin-top: 16px;">
+		<nav class="navbar navbar-expand-lg navbar-light " style="height: 50px;">
+  <a class="navbar-brand" href="#"> 
+	<img src="img/LOGO.png" height="100" style="height: 128px;
+    width: 190px;
+    margin-top: 18px;
+    margin-left: 68px;
+}">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"> </span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-center"  id="navbarSupportedContent">
+    <ul class="navbar-nav" style="font-weight: 500;font-size: 14px;">
+	   <li class="nav-item">
+        <a class="nav-link" href="#" onclick="scrollHome()">TRANG CHỦ</a>
+      </li>
+      <li class="nav-item active ">
+        <a class="nav-link" onclick="scrollCn()">CÔNG NGHỆ<span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" onclick="scrollGd()">GIÁO DỤC</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" onclick="scrollTc()">TÀI CHÍNH</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" onclick="scrollVh()">VĂN HÓA</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" onclick="scrollTt()">THỂ THAO</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" onclick="scrollX()">XE</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" onclick="scrollDl()">DU LỊCH</a>
+      </li>
+
+    </ul>
+  </div>
+  <a id="a1" href="#" onclick="dangnhap()" style="margin-right: 53px; font-weight: 500; font-size: 14px;">ĐĂNG NHẬP</a>
+  <a id="11" href="#"style="font-weight: 500;
+    width: 28px;
+    text-align: center;
+    background: #d8d8d9;
+    font-size: 18px;
+    color: white !important;
+    border-radius: 57px;"></a>
+  <a id="a12" href="" style="margin-right: 60px; font-weight: 500; margin-left: -40px; font-size: 14px;">ĐĂNG KÍ</a>
+  <a id="qla1" href="#" onclick="adquanly()" style="margin-right: 53px; font-weight: 500; margin-left: 10px; font-size: 14px; display: none;">Quản Lý</a>
+</nav>
+	</div>
+
+	 <!--Bắt đầu đăng nhập-->
+  <div id="id01" class="modal">
+    <form class="modal-content animate" action="/action_page.php" method="post">
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <strong style="font-family: auto">LOGIN</strong>
+      </div>
+
+      <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input type="text1" placeholder="Enter Username" id="name" name="uname" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" id="pass" name="psw" required>
+        <br><br>
+        <input type="checkbox" checked="checked" name="remember"> Remember me 
+        <br> 
+        <label>
+          <button type="button" class="btn btn-outline-primary" onclick="dangnhap1()" style="margin-top: 15px;">Login</button>
+        </label>
+      </div>
+      <br>
+
+      <div class="container" style="background-color:#f1f1f1; height: 57px;">
+        <span class="psw">Forgot <a href="#">password?</a></span>
+      </div>
+    </form>
+  </div>
+  <!--thẻ header-->
+	<br><br>
+	<div class="container" id="trquanly">
+		<div class="container">
+			<div class="row">
+				<div class="col-10 justify-content-center">
+					<button type="button" class="btn btn-outline-dark" onclick="showadd()" style="margin-top: 44px;margin-top: 44px;
+    font-size: 14pt;
+    font-weight: 600;"> <i class="fa fa-plus-square-o" style="padding-right: 8px"></i>Thêm tin tức</button>
+				</div>
+			</div>
+		</div>
+		<div id="idadd" class="modaladd">
+		    <form class="modal-content animate" method="post">
+		      <div class="imgcontainer">
+		        <span onclick="document.getElementById('idadd').style.display='none'" class="close" title="Close Modal">&times;</span>
+		        <strong style="font-family: auto">Thêm tin tức</strong>
+		      </div>
+
+		      <div class="container">
+		      	<form>
+		      		<div class="form-group">
+					    <label for="danhmuc"><b>Danh mục</b></label>
+					    <select class="form-control" id="danhmuc">
+					      <option>Lựa chọn</option>
+					      <option id="cn">Công nghệ</option>
+					      <option id="dmgiaoduc">Giáo dục</option>
+					      <option id="tc">Tài chính</option>
+					      <option id="dmvanhoa">Văn Hoá</option>
+					      <option id="tt">Thể thao</option>
+					      <option id="xexe">Xe</option>
+					      <option id="dl">Du lịch</option>
+					    </select>
+					</div>
+					<label for="titleadd" class="form-group"><b>Tiêu đề bài viết</b></label>
+        			<input type="text" placeholder="Enter title" id="titleadd" name="title" required style="width: 480px;height: 35px;border-radius: 5px;">
+					 <div class="form-group">
+					    <label for="titleaddcontent"><b>Tiêu đề nội dung</b></label>
+			        	<input type="text" placeholder="Enter title content" id="titleaddcontent" style="width: 467px;height: 35px;border-radius: 5px;">
+					 </div>
+			        <div class="form-group">
+					    <label for="contentadd">Nội dung bài viết</label>
+					    <textarea class="form-control" id="contentadd" rows="3"></textarea>
+					</div>
+					<div class="form-group">
+					    <label for="imgadd"><b>Hình ảnh bài viết</b></label>
+			        	<input type="file" id="imgadd">
+					</div>
+					<div class="form-group">
+					    <label for="titleimgadd"><b>Tiêu đề ảnh</b></label>
+			       	 	<input type="text" placeholder="Enter title img" id="titleimgadd" required style="width: 506px;height: 35px;border-radius: 5px;">
+					</div>
+			        <br><br>
+			        <br> 
+			        <label>
+			          <button type="button" class="btn btn-outline-primary" onclick="add()" style="">Add</button>
+			        </label>
+		      	</form>
+		      </div>
+		      <br>
+
+		    </form>
+		  </div>
+		<div class="abc" id="sua">
+		  	
+		</div>
+		<div class="container">
+			<div class="row" id="congngheql">
+				<div class="col-12" style="height: 60px;">
+					<div class="title">
+						<h2> <i class="fa fa-cog" style="margin-right: 7px; font-size: 23px;color: #0a0e6b;"></i>CÔNG NGHỆ</h2>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<!-- end công nghê -->
+		<div class="container" style="background: #b9b995;;height: 550px">
+			<div class="row">
+				<div class="col-12" style="height: 53px;">
+					<div class="title">
+						<h2><i class="fa fa-star-half-full" style="margin-right: 7px; font-size: 23px;color: #0a0e6b;"></i>GIẢO DỤC</h2>
+					</div>
+				</div>
+				<div class="col-7" id="colql">
+					
+				</div>
+				<div class="col-5" id="col5ql">
+				</div>	
+			</div>
+		</div>
+		<br>
+		<div class="container">
+			<div class="row" id="taichinhql">
+				<div class="col-12" style="">
+					<div class="title">
+						<h2><i class="fa fa-bitcoin" style="margin-right: 7px; font-size: 23px;color: #0a0e6b;"></i>TÀI CHÍNH - KINH DOANH</h2>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<<div class="container" style="">
+			<div class="row">
+				<div class="col-12">
+					<div class="title">
+						<h2><i class="fa fa-leanpub" style="margin-right: 7px; font-size: 23px;color: #0a0e6b;"></i>VĂN HOÁ</h2>
+					</div>
+				</div>
+				<div class="col-7" id="colvql">
+					
+				</div>
+				<div class="col-5" id="col5vql" >
+					
+				</div>
+			</div>
+		</div>
+		<div class="container" style="margin-top: 20px">
+			<div class="row" id="thethaoql">
+				<div class="col-12">
+					<div class="title">
+						<h2><i class="fa fa-dribbble" style="margin-right: 7px; font-size: 28px;color: #0a0e6b;"></i>THỂ THAO</h2>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="title">
+						<h2><i class="fa fa-codiepie" style="margin-right: 7px; font-size: 23px;color: #0a0e6b;"></i>XE</h2>
+					</div>
+				</div>
+				<div class="col-7" id="colxql">
+					
+				</div>
+				<div class="col-5" id="col5xql">
+					
+				</div>
+			</div>
+		</div>
+		<div class="container" style="margin-top: 20px;">
+			<div class="row" id="dulichql">
+				<div class="col-12">
+					<div class="title">
+						<h2><i class="fa fa-envira" style="margin-right: 7px; font-size: 23px;color: #0a0e6b;"></i>DU LỊCH</h2>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<br><br>
+	<div class="w-100" id="home">
+		<div class="container">
+			<div class="row" id="craw">
+				<div class="col-12" style="height: 60px;">
+					<div class="title">
+						<h2> <i class="fa fa-cog" style="margin-right: 7px; font-size: 23px;color: #0a0e6b;"></i>TIN TỨC TRONG NGÀY</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row" id="congnghe">
+				<div class="col-12" style="height: 60px;">
+					<div class="title">
+						<h2> <i class="fa fa-cog" style="margin-right: 7px; font-size: 23px;color: #0a0e6b;"></i>CÔNG NGHỆ</h2>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<!-- end công nghê -->
+		<div class="container" style="background: #f3f2f2;;;height: 520px">
+			<div class="row">
+				<div class="col-12" style="height: 53px;">
+					<div class="title">
+						<h2><i class="fa fa-star-half-full" style="margin-right: 7px; font-size: 23px;color: #0a0e6b;"></i>GIẢO DỤC</h2>
+					</div>
+				</div>
+				<div class="col-7" id="col">
+					
+				</div>
+				<div class="col-5" id="col5">
+					
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="container">
+			<div class="row" id="taichinh">
+				<div class="col-12" style="margin-bottom: -22px; margin-top: -26px;">
+					<div class="title">
+						<h2><i class="fa fa-bitcoin" style="margin-right: 7px; font-size: 23px;color: #0a0e6b;"></i>TÀI CHÍNH - KINH DOANH</h2>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="title">
+						<h2><i class="fa fa-leanpub" style="margin-right: 7px; font-size: 23px;color: #0a0e6b;"></i>VĂN HOÁ</h2>
+					</div>
+				</div>
+				<div class="col-7" id="colv">
+					
+				</div>
+				<div class="col-5" id="col5v">
+					
+				</div>
+			</div>
+		</div>
+		<div class="container" style="margin-top: 20px">
+			<div class="row" id="thethao">
+				<div class="col-12">
+					<div class="title">
+						<h2><i class="fa fa-dribbble" style="margin-right: 7px; font-size: 28px;color: #0a0e6b;"></i>THỂ THAO</h2>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="title">
+						<h2><i class="fa fa-codiepie" style="margin-right: 7px; font-size: 23px;color: #0a0e6b;"></i>XE</h2>
+					</div>
+				</div>
+				<div class="col-7" id="colx">
+					
+				</div>
+				<div class="col-5" id="col5x">
+					
+				</div>
+			</div>
+		</div>
+		<div class="container" style="margin-top: 20px;">
+			<div class="row" id="dulich">
+				<div class="col-12">
+					<div class="title">
+						<h2><i class="fa fa-envira" style="margin-right: 7px; font-size: 23px;color: #0a0e6b;"></i>DU LỊCH</h2>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+	</div>
+	<!-- page -->
+	<div class="w-100" id="page">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h2 id="h2" style="font-size: 21px"></h2>
+					<div class="tacgia" id="tacgia">
+						
+					</div>
+					<div class="share">
+						<div class="face">
+							<i class="fa fa-thumbs-up fa-2x"></i>
+							<p>Like 322</p>
+						</div>
+						<div class="line">
+							
+						</div>
+						<div class="icon">
+							<i class="fa fa-facebook fa-2x"></i>
+						</div>
+						<div class="icon mess">
+							<i class="fa fa-skype fa-2x"></i>
+						</div>
+					</div>
+				</div>	
+			</div>	
+		</div>
+		<hr>
+		<div class="container">
+			<div class="row">
+				<div class="col-8">
+					<p id="date"></p>
+					<h3 id="titl"></h3>
+
+					<div id="imagepage" class="text-center">
+						
+					</div>
+					<p id="contentpage"></p>
+				</div>
+				<div class="col-4" id="col4">
+					<h1 style="font-size: 25px; font-family: auto; margin-bottom: 10px;">Tin Đọc Nhiều</h1>
+					
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row" id="tinnong">
+				<div class="col-12">
+					<h2 style="font-family: auto"><i class="fa fa-pied-piper" style="margin-right: 10px; margin-bottom: 10px"></i>Có thể bạn quân tâm</h2>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+			<!--Footer-->
+		<footer class="site-footer" style="margin-top: 25px;background: #f6f4f4;height: 610px;">
+			<div class="l-grid">
+
+				<ul class="site-footer__catelist">
+					<li>
+						<a href="" class="heading">
+							<b>Thời sự</b>
+						</a>
+						<br>
+						<a href=""><i>Chính trị</i></a>
+						<a href=""><i>Pháp luật</i></a>
+						<a href=""><i>Dân sinh</i></a>
+						<a href=""><i>Việc làm</i></a>
+						<a href=""><i>Quyền được biết</i></a>
+						<a href=""><i>Phóng sự / Điều tra</i></a>
+						<a href=""><i>Quốc phòng</i></a>
+						<br><br>
+						<a href="" class="heading"><b>Tôi viết</b></a>
+						<br>
+						<a href=""><i>Blog phóng viên</i></a>
+					 </li>
+					 <li><a href="" class="heading"><b>Giới trẻ</b></a>
+					 <br> 
+					 	<a href=""><i>Sống - Yêu - Ăn - Chơi</i></a>
+					 	<a href=""><i>Thế giới mạng</i></a>
+					 	<a href=""><i>Kết nối</i></a>
+					 	<br><br>
+						<a href=""class="heading"><b>Đời sống</b></a>
+						<br>
+						<a href=""><i>Người sống quanh ta</i></a>
+						<a href=""><i>Gia đình</i></a>
+						<a href=""><i>Ẩm thực</i></a>
+						<a href=""><i>Cộng đồng</i></a>
+						<a href=""><i>Spa - Thẩm Mỹ</i></a>
+						<a href=""><i>Sống xanh</i></a>
+						<br><br>
+						<a href="" class="heading"><b>Tài chính - Kinh doanh</b></a>
+						<br>
+						<a href=""><i>Chính sách - Phát triển</i></a>
+						<a href=""><i>Ngân hàng</i></a>
+						<a href="" ><i>Tiêu dùng</i></a>
+						<a href=""><i>Chứng khoán</i></a>
+						<a href=""><i>Doanh nghiệp</i></a>
+						<a href=""><i>Doanh nhân</i></a>
+						<a href=""><i>Làm giàu</i></a>
+						<a href=""><i>Địa ốc</i></a>
+					</li>
+					<li style="float: left">
+						<a href=""class="heading"><b>Sức khỏe</b></a>
+						<br>
+						<a href=""><i>Làm đẹp</i></a>
+						<a href=""><i>Khoẻ đẹp mỗi ngày</i></a>
+						<a href=""><i>Giới tính</i></a>
+						<a href=""><i>Sống vui khỏe</i></a>
+						<br><br>
+						<a href="" class="heading"><b>Du lịch</b></a>
+						<a href=""><i>Khám phá</i></a>
+						<a href=""><i>A-Z</i></a>
+						<a href=""><i>Săn Tour</i></a>
+					</li>
+					<li>
+						<a href="" class="heading">
+							<b>Thế giới</b></a>
+							<br>
+							<a href=""><i>Kinh tế thế giới</i></a>
+							<a href=""><i>Quân sự</i></a>
+							<a href=""><i>Hồ sơ</i></a>
+							<a href=""><i>Góc nhìn</i></a>
+							<a href=""><i>Người Việt năm châu</i></a>
+							<a href=""><i>Chuyện lạ</i></a>
+							<br><br>
+						<a href="" class="heading">
+							<b>Công nghệ</b></a>
+							<br>
+							<a href=""><i>Sản phẩm mới</i></a>
+							<a href=""><i>Kinh Nghiệm</i></a>
+							<a href=""><i>Ý tưởng</i></a>
+							<a href=""><i>Xu hướng</i></a>
+					</li>
+					<li>
+						<a href="" class="heading">
+							<b>Văn hóa</b>
+						</a>
+						<br>
+						<a href=""><i>Điện ảnh</i></a>
+						<a href=""><i>Truyền hình</i></a>
+						<a href=""><i>Câu chuyện văn hóa</i></a>
+						<a href=""><i>Đời nghệ sĩ</i></a>
+						<a href=""><i>Thành phố tôi yêu</i></a>
+						<br>
+						<a href="" class="heading"><b>Thể thao</b></a><br>
+						<a href="" class="heading"><b>Game</b></a><br>
+						<a href="" class="heading" target="_blank"><b>Xe</b></a><br>
+						<a href="" class="heading"><b>Video</b></a><br>
+						<a href="" class="heading"><b>Thông tin khuyến mãi</b></a><br>
+						<a href="" class="heading"><b>Tin nhanh 360°</b></a><br>
+						<a href="" class="heading"><b>Tin thị trường</b></a><br>
+						<a href="" class="heading"><b>Tin 24h</b></a>
+					</li>
+					</ul>
+					<div class="site-footer__info">
+						<div class="left">
+							<a href="" class="logo">Thanh Niên Online</a>
+							<strong>Giấy phép xuất bản số 298/GP - BTTTT cấp ngày 29.7.2013</strong> <br>
+							© 2003-2018 Bản quyền thuộc về Báo Thanh Niên.Cấm sao chép dưới mọi hình thức nếu không có sự chấp thuận bằng văn bản. <br>
+							Phát triển bởi ePi Technologies, JSC.
+						</div>
+						<div class="right" style="font-size: 16px;">
+							<nav class="site-footer__tool">
+								<a href="" style="color: #1c69b4 !important;font-weight: 500;margin-right: 10px;">Đặt báo</a>
+								<a href="" style="color: #1c69b4 !important;font-weight: 500;margin-right: 10px;">Quảng cáo</a>
+								<a href="" style="color: #1c69b4 !important;font-weight: 500;margin-right: 10px;">RSS</a>
+								<a href="" style="color: #1c69b4 !important;font-weight: 500;margin-right: 10px;">Thông tin tòa soạn</a>
+							</nav>
+							Tổng biên tập: <strong>Hồ văn toải</strong> <br>
+							Phó tổng biên tập: <strong>Cao xuân thành</strong> <br>
+							Phó tổng biên tập: <strong>Nguyễn Ngọc Toàn</strong> <br>
+							Phó tổng biên tập: <strong>Đặng Thị Phương Thảo</strong> <br>
+							Ủy viên Ban biên tập - Tổng Thư ký tòa soạn: <strong>Trần Việt Hưng</strong>
+						</div>
+					</div>
+				</div>
+			</footer>
+	<!--Kết thúc-->
+	</div>
+	<script src="js/style.js" type="text/javascript"></script>
+</body>
+</html>
