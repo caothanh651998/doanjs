@@ -1479,35 +1479,36 @@ function add(){
   var titlecontent=  document.getElementById("titleaddcontent").value;
   var content=  document.getElementById("contentadd").value;
   var image=  document.getElementById("imgadd").value;
+  var anthor=  document.getElementById("anthor").value;
   var titleimg=  document.getElementById("titleimgadd").value;
   image = image.split('\\')[2];
 
   if(danhmuc == dmcongnghe){
-    data.congnghe.push({id:id++, title, titlecontent,image , content, titleimg});
+    data.congnghe.push({id:id++, title, titlecontent,image,anthor , content, titleimg});
     localStorage.setItem('congnghe', JSON.stringify(data.congnghe));
     window.location.reload(false);
   }else if(danhmuc == dmgiaoduc){
-    data.giaoduc.push({id:id++, title, titlecontent,image , content, titleimg});
+    data.giaoduc.push({id:id++, title, titlecontent,image,anthor , content, titleimg});
     localStorage.setItem('giaoduc', JSON.stringify(data.giaoduc));
     window.location.reload(false);
   }else if(danhmuc == dmtaichinh){
-    data.taichinh.push({id:id++, title, titlecontent,image , content, titleimg});
+    data.taichinh.push({id:id++, title, titlecontent,image,anthor , content, titleimg});
     localStorage.setItem('taichinh', JSON.stringify(data.taichinh));
     window.location.reload(false);
   }else if(danhmuc == vanhoa){
-    data.vanhoa.push({id:id++, title, titlecontent,image , content, titleimg});
+    data.vanhoa.push({id:id++, title, titlecontent,image,anthor , content, titleimg});
     localStorage.setItem('vanhoa', JSON.stringify(data.vanhoa));
     window.location.reload(false);
   }else if(danhmuc == thethao){
-    data.thethao.push({id:id++, title, titlecontent,image , content, titleimg});
+    data.thethao.push({id:id++, title, titlecontent,image,anthor , content, titleimg});
     localStorage.setItem('thethao', JSON.stringify(data.thethao));
     window.location.reload(false);
   }else if(danhmuc == xe){
-    data.xe.push({id:id++, title, titlecontent,image , content, titleimg});
+    data.xe.push({id:id++, title, titlecontent,image,anthor , content, titleimg});
     localStorage.setItem('xe', JSON.stringify(data.xe));
     window.location.reload(false);
   }else if(danhmuc == dulich){
-    data.dulich.push({id:id++, title, titlecontent,image , content, titleimg});
+    data.dulich.push({id:id++, title, titlecontent,image,anthor , content, titleimg});
     localStorage.setItem('dulich', JSON.stringify(data.dulich));
     window.location.reload(false);
   }else{
